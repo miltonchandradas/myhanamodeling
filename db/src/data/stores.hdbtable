@@ -1,0 +1,8 @@
+column table "STORES" (
+    "ID" INTEGER  unique not null COMMENT 'Store ID',
+    "NAME" NVARCHAR(256) not null COMMENT 'Store name',
+    "STATE" NVARCHAR(20) not null COMMENT 'State',
+    "COUNTRY" NVARCHAR(100) COMMENT 'Country',
+    PRIMARY KEY ("ID")
+)
+COMMENT 'Store information'

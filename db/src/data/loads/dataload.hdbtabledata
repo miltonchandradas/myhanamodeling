@@ -1,0 +1,65 @@
+{
+    "format_version": 1,
+    "imports": [
+        {
+            "target_table": "STORES",
+            "import_settings": {
+                "include_filter": []
+            },
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "stores.csv",
+                "has_header": true,
+                "dialect": "HANA",
+                "type_config": {
+                    "delimiter": ","
+                }
+            }
+        },
+        {
+            "target_table": "PRODUCTS",
+            "import_settings": {
+                "include_filter": []
+            },
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "products.csv",
+                "has_header": true,
+                "dialect": "HANA",
+                "type_config": {
+                    "delimiter": ","
+                }
+            }
+        },
+        {
+            "target_table": "MONTHS",
+            "import_settings": {
+                "include_filter": []
+            },
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "months.csv",
+                "has_header": true,
+                "dialect": "HANA",
+                "type_config": {
+                    "delimiter": ","
+                }
+            }
+        },
+        {
+            "target_table": "SALES",
+            "import_settings": {
+                "include_filter": []
+            },
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "sales.csv",
+                "has_header": true,
+                "dialect": "HANA",
+                "type_config": {
+                    "delimiter": ","
+                }
+            }
+        }
+    ]
+}

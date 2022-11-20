@@ -1,0 +1,11 @@
+column table "SALES" (
+    "ID" INTEGER  unique not null COMMENT 'Sales ID',
+    "STORE_ID" INTEGER not null COMMENT 'Store ID',
+    "PRODUCT_ID" INTEGER not null COMMENT 'PRODUCT ID',
+    "MONTH_ID" INTEGER not null COMMENT 'Month ID',
+    "STORE_SALES" DOUBLE not null COMMENT 'Store sales',
+    "ONLINE_SALES" DOUBLE not null COMMENT 'Online Sales',
+    "QUANTITY" INTEGER not null COMMENT 'Quantity',
+    PRIMARY KEY ("ID")
+)
+COMMENT 'Sales information'

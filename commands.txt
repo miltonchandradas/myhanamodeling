@@ -1,0 +1,5 @@
+STEPS:
+----------------------------------------------------------------------------------------
+
+Deploy the database module
+SAP HANA PROJECTS ==> Deploy icon

@@ -1,0 +1,6 @@
+column table "MONTHS" (
+    "ID" INTEGER  unique not null COMMENT 'Month ID',
+    "NAME" NVARCHAR(100) not null COMMENT 'Month name',
+    PRIMARY KEY ("ID")
+)
+COMMENT 'Month information'
