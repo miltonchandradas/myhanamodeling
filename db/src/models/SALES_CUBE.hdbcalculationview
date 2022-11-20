@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="SALES_CUBE" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="Sales"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="SALES">
+    <resourceUri>SALES</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+<logicalModel id="SALES">
+  <attributes>
+    <attribute id="ID" order="1">
+      <descriptions defaultDescription="Sales ID"/>
+      <keyMapping columnObjectName="SALES" columnName="ID"/>
+    </attribute>
+    <attribute id="STORE_ID" order="2">
+      <descriptions defaultDescription="Store ID"/>
+      <keyMapping columnObjectName="SALES" columnName="STORE_ID"/>
+    </attribute>
+    <attribute id="PRODUCT_ID" order="3">
+      <descriptions defaultDescription="PRODUCT ID"/>
+      <keyMapping columnObjectName="SALES" columnName="PRODUCT_ID"/>
+    </attribute>
+    <attribute id="MONTH_ID" order="4">
+      <descriptions defaultDescription="Month ID"/>
+      <keyMapping columnObjectName="SALES" columnName="MONTH_ID"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="STORE_SALES" order="5" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="Store sales"/>
+      <measureMapping columnObjectName="SALES" columnName="STORE_SALES"/>
+    </measure>
+    <measure id="ONLINE_SALES" order="6" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="Online Sales"/>
+      <measureMapping columnObjectName="SALES" columnName="ONLINE_SALES"/>
+    </measure>
+    <measure id="QUANTITY" order="7" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="Quantity"/>
+      <measureMapping columnObjectName="SALES" columnName="QUANTITY"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
