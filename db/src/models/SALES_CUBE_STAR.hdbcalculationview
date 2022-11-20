@@ -54,9 +54,9 @@
       <viewAttribute id="STORE_SALES" aggregationType="sum"/>
       <viewAttribute id="ONLINE_SALES" aggregationType="sum"/>
       <viewAttribute id="QUANTITY" aggregationType="sum"/>
+      <viewAttribute id="MONTH"/>
       <viewAttribute id="PRODUCT_NAME"/>
       <viewAttribute id="PRODUCT_DESCRIPTION"/>
-      <viewAttribute id="MONTH"/>
       <viewAttribute hidden="true" id="JOIN$ID$PRODUCT_ID"/>
     </viewAttributes>
     <calculatedViewAttributes/>
@@ -125,7 +125,12 @@
       <measureMapping columnObjectName="Join_1_2" columnName="QUANTITY"/>
     </measure>
   </baseMeasures>
-  <calculatedMeasures/>
+  <calculatedMeasures>
+    <measure id="TOTAL_SALES" order="10" aggregationType="sum" measureType="simple" datatype="DOUBLE" expressionLanguage="SQL">
+      <descriptions defaultDescription="Total Sales"/>
+      <formula>&quot;STORE_SALES&quot; + &quot;ONLINE_SALES&quot;</formula>
+      </measure>
+  </calculatedMeasures>
   <restrictedMeasures/>
   <localDimensions/>
   <sharedDimensions>
@@ -160,23 +165,23 @@
     </shape>
     <shape modelObjectName="PRODUCTS" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput" multiJoinViewNodeName="Join_1">
       <upperLeftCorner x="113" y="276"/>
-      <rectangleSize width="161.173828125"/>
+      <rectangleSize width="161"/>
     </shape>
     <shape modelObjectName="MONTHS" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput" multiJoinViewNodeName="Join_1">
       <upperLeftCorner x="663" y="334"/>
-      <rectangleSize width="117.78076171875"/>
+      <rectangleSize width="117"/>
     </shape>
     <shape modelObjectName="SALES_CUBE" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput" multiJoinViewNodeName="Join_1">
       <upperLeftCorner x="404" y="46"/>
-      <rectangleSize width="168.53759765625"/>
+      <rectangleSize width="168"/>
     </shape>
     <shape modelObjectName="Join_1_2" modelObjectNameSpace="StarJoinViewNodeInput" modelObjectType="repository">
-      <upperLeftCorner x="723" y="77"/>
-      <rectangleSize width="221.67919921875"/>
-    </shape>
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape><shape><upperLeftCorner/><rectangleSize/></shape>
     <shape modelObjectName="STORES_DIMENSION" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
       <upperLeftCorner x="294" y="61"/>
-      <rectangleSize width="187.802734375"/>
+      <rectangleSize width="187"/>
     </shape>
   </shapes>
 </layout>
