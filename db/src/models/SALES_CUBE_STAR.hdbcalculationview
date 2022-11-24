@@ -131,7 +131,12 @@
       <formula>&quot;STORE_SALES&quot; + &quot;ONLINE_SALES&quot;</formula>
       </measure>
   </calculatedMeasures>
-  <restrictedMeasures/>
+  <restrictedMeasures>
+    <measure id="STORE_SALES_ALCOHOL" order="11" aggregationType="sum" datatype="DOUBLE" length="15" scale="null" baseMeasure="STORE_SALES" restrictionExpressionLanguage="SQL">
+      <descriptions defaultDescription=""/>
+      <restrictionExpression>&quot;PRODUCT_ID&quot; = 3 OR &quot;PRODUCT_ID&quot; = 4</restrictionExpression>
+    </measure>
+  </restrictedMeasures>
   <localDimensions/>
   <sharedDimensions>
     <logicalJoin associatedObjectUri="STORES_DIMENSION">
@@ -178,7 +183,7 @@
     <shape modelObjectName="Join_1_2" modelObjectNameSpace="StarJoinViewNodeInput" modelObjectType="repository">
       <upperLeftCorner x="20" y="30"/>
       <rectangleSize width="250"/>
-    </shape><shape><upperLeftCorner/><rectangleSize/></shape>
+    </shape><shape><upperLeftCorner/><rectangleSize/></shape><shape><upperLeftCorner/><rectangleSize/></shape><shape><upperLeftCorner/><rectangleSize/></shape><shape><upperLeftCorner/><rectangleSize/></shape><shape><upperLeftCorner/><rectangleSize/></shape>
     <shape modelObjectName="STORES_DIMENSION" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
       <upperLeftCorner x="294" y="61"/>
       <rectangleSize width="187"/>
