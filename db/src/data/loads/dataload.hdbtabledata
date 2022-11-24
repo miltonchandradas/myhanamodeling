@@ -60,6 +60,21 @@
                     "delimiter": ","
                 }
             }
+        },
+        {
+            "target_table": "MEASURES1",
+            "import_settings": {
+                "include_filter": []
+            },
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "measures1.csv",
+                "has_header": true,
+                "dialect": "HANA",
+                "type_config": {
+                    "delimiter": ","
+                }
+            }
         }
     ]
 }

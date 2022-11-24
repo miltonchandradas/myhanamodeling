@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:AccessControl="http://www.sap.com/ndb/SQLCoreModelAccessControl.ecore" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" xmlns:Privilege="http://www.sap.com/ndb/BiModelPrivilege.ecore" id="MEASURES1_AGGREGATION" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="MEASURES1_AGGREGATION.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="MEASURES1">
+    <resourceUri>MEASURES1</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+<logicalModel id="MEASURES1">
+  <attributes>
+    <attribute id="ID" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Measures ID"/>
+      <keyMapping columnObjectName="MEASURES1" columnName="ID"/>
+    </attribute>
+    <attribute id="YEAR" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Year"/>
+      <keyMapping columnObjectName="MEASURES1" columnName="YEAR"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="VALUE_1" hidden="true" order="4" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="Value 1"/>
+      <measureMapping columnObjectName="MEASURES1" columnName="VALUE_1"/>
+    </measure>
+    <measure id="VALUE_2" hidden="true" order="5" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="Value 2"/>
+      <measureMapping columnObjectName="MEASURES1" columnName="VALUE_2"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures>
+    <measure id="2015_Value_1" order="1" aggregationType="sum" datatype="INTEGER" length="" scale="0" baseMeasure="VALUE_1">
+      <descriptions defaultDescription=""/>
+      <restriction logicalOperator="AND">
+        <filter xsi:type="Privilege:AttributeFilter" attributeName="YEAR">
+          <valueFilter xsi:type="AccessControl:SingleValueFilter" including="true" value="2015"/>
+        </filter>
+        <attributeName>YEAR</attributeName>
+      </restriction>
+      </measure>
+    <measure id="2015_Value_2" order="6" aggregationType="sum" datatype="INTEGER" length="" scale="0" baseMeasure="VALUE_2">
+      <descriptions defaultDescription=""/>
+      <restriction logicalOperator="AND">
+        <filter xsi:type="Privilege:AttributeFilter" attributeName="YEAR">
+          <valueFilter xsi:type="AccessControl:SingleValueFilter" including="true" value="2015"/>
+        </filter>
+        <attributeName>YEAR</attributeName>
+      </restriction>
+      </measure>
+    <measure id="2016_Value_1" order="7" aggregationType="sum" datatype="INTEGER" length="" scale="0" baseMeasure="VALUE_1">
+      <descriptions defaultDescription=""/>
+      <restriction logicalOperator="AND">
+        <filter xsi:type="Privilege:AttributeFilter" attributeName="YEAR">
+          <valueFilter xsi:type="AccessControl:SingleValueFilter" including="true" value="2016"/>
+        </filter>
+        <attributeName>YEAR</attributeName>
+      </restriction>
+      </measure>
+    <measure id="2017_Value_1" order="8" aggregationType="sum" datatype="INTEGER" length="" scale="0" baseMeasure="VALUE_1">
+      <descriptions defaultDescription=""/>
+      <restriction logicalOperator="AND">
+        <filter xsi:type="Privilege:AttributeFilter" attributeName="YEAR">
+          <valueFilter xsi:type="AccessControl:SingleValueFilter" including="true" value="2017"/>
+        </filter>
+        <attributeName>YEAR</attributeName>
+      </restriction>
+      </measure>
+    <measure id="2016_Value_2" order="9" aggregationType="sum" datatype="INTEGER" length="" scale="0" baseMeasure="VALUE_2">
+      <descriptions defaultDescription=""/>
+      <restriction logicalOperator="AND">
+        <filter xsi:type="Privilege:AttributeFilter" attributeName="YEAR">
+          <valueFilter xsi:type="AccessControl:SingleValueFilter" including="true" value="2016"/>
+        </filter>
+        <attributeName>YEAR</attributeName>
+      </restriction>
+      </measure>
+    <measure id="2017_Value_2" order="10" aggregationType="sum" datatype="INTEGER" length="" scale="0" baseMeasure="VALUE_2">
+      <descriptions defaultDescription=""/>
+      <restriction logicalOperator="AND">
+        <filter xsi:type="Privilege:AttributeFilter" attributeName="YEAR">
+          <valueFilter xsi:type="AccessControl:SingleValueFilter" including="true" value="2017"/>
+        </filter>
+        <attributeName>YEAR</attributeName>
+      </restriction>
+      </measure>
+  </restrictedMeasures>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

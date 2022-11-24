@@ -1,0 +1,8 @@
+column table "MEASURES1" (
+    "ID" INTEGER  unique not null COMMENT 'Measures ID',
+    "YEAR" INTEGER not null COMMENT 'Year',
+    "VALUE_1" INTEGER not null COMMENT 'Value 1',
+    "VALUE_2" INTEGER COMMENT 'Value 2',
+    PRIMARY KEY ("ID")
+)
+COMMENT 'Measures sample'
