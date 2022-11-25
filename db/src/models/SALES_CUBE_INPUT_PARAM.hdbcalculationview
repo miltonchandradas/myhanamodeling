@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="SALES_CUBE_INPUT_PARAM" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="Sales with input param"/>
+<localVariables>
+  <variable id="INPUT_PARAM_MONTH" parameter="true">
+    <descriptions defaultDescription=""/>
+    <variableProperties datatype="NVARCHAR" length="13" mandatory="true">
+      <valueDomain type="StaticList">
+        <listEntry id="January">
+          <descriptions defaultDescription="January"/>
+        </listEntry>
+        <listEntry id="February">
+          <descriptions defaultDescription="February"/>
+        </listEntry>
+        <listEntry id="March">
+          <descriptions defaultDescription="March"/>
+        </listEntry>
+        <listEntry id="April">
+          <descriptions defaultDescription="April"/>
+        </listEntry>
+      </valueDomain>
+      <selection multiLine="false" type="SingleValue"/>
+    </variableProperties>
+  </variable>
+</localVariables>
+<variableMappings/>
+<dataSources>
+  <DataSource id="SALES">
+    <resourceUri>SALES</resourceUri>
+  </DataSource>
+  <DataSource id="MONTHS">
+    <resourceUri>MONTHS</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="ID" aggregationType="sum"/>
+      <viewAttribute id="STORE_ID" aggregationType="sum"/>
+      <viewAttribute id="PRODUCT_ID" aggregationType="sum"/>
+      <viewAttribute id="MONTH_ID" aggregationType="sum"/>
+      <viewAttribute id="STORE_SALES" aggregationType="sum"/>
+      <viewAttribute id="ONLINE_SALES" aggregationType="sum"/>
+      <viewAttribute id="QUANTITY" aggregationType="sum"/>
+      <viewAttribute id="NAME"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="SALES">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID" source="ID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="STORE_ID" source="STORE_ID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRODUCT_ID" source="PRODUCT_ID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MONTH_ID" source="MONTH_ID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="STORE_SALES" source="STORE_SALES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ONLINE_SALES" source="ONLINE_SALES"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QUANTITY" source="QUANTITY"/>
+    </input>
+    <input node="MONTHS">
+      <mapping xsi:type="Calculation:AttributeMapping" target="NAME" source="NAME"/>
+    </input>
+    <filter>&quot;NAME&quot;='$$INPUT_PARAM_MONTH$$'</filter>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Join_1">
+  <attributes>
+    <attribute id="ID" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Sales ID"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID"/>
+    </attribute>
+    <attribute id="STORE_ID" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Store ID"/>
+      <keyMapping columnObjectName="Join_1" columnName="STORE_ID"/>
+    </attribute>
+    <attribute id="PRODUCT_ID" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PRODUCT ID"/>
+      <keyMapping columnObjectName="Join_1" columnName="PRODUCT_ID"/>
+    </attribute>
+    <attribute id="MONTH_ID" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Month ID"/>
+      <keyMapping columnObjectName="Join_1" columnName="MONTH_ID"/>
+    </attribute>
+    <attribute id="NAME" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Month name"/>
+      <keyMapping columnObjectName="Join_1" columnName="NAME"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="STORE_SALES" order="5" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="Store sales"/>
+      <measureMapping columnObjectName="Join_1" columnName="STORE_SALES"/>
+    </measure>
+    <measure id="ONLINE_SALES" order="6" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="Online Sales"/>
+      <measureMapping columnObjectName="Join_1" columnName="ONLINE_SALES"/>
+    </measure>
+    <measure id="QUANTITY" order="7" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="Quantity"/>
+      <measureMapping columnObjectName="Join_1" columnName="QUANTITY"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="241"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="SALES" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="168.53759765625"/>
+    </shape>
+    <shape modelObjectName="MONTHS" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="117.78076171875"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
